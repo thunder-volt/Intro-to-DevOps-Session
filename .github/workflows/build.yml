@@ -1,22 +1,22 @@
 name: Build Express app
 on: 
   push:
-    branch: 
+    branches: 
       - main
   pull_request:
-    branch: 
+    branches: 
       -main
-  jobs:
-    build: 
-      runs-on: ubuntu-latest
-      steps:
-        -name: checkout
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
         uses: actions/checkout@v2
-        -name: set up nodejs
+      - name: set up nodejs
         uses: actions/setup-node@v1
         with: 
           node-version: 16
-        -run: npm install
-        -run: npm run lint
-        -run: npm test
-        -run: npm run build
+      - run: npm install
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
